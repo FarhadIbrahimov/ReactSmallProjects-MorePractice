@@ -24,7 +24,7 @@ export default function Form2({ addEmployee }) {
       email: emailRef.current.value,
       headshot: "../images/headshot4.jpeg",
       borderColor: "rgb(100,230,204)",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     };
 
     nameRef.current.value = "";

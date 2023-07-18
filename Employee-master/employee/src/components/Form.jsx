@@ -5,7 +5,7 @@ export default function Form({ addEmployee }) {
     name: "",
     title: "",
     phone: "",
-    email: ""
+    email: "",
   });
 
   function handleSubmit(event) {
@@ -15,14 +15,14 @@ export default function Form({ addEmployee }) {
       ...form,
       headshot: "../images/headshot4.jpeg",
       borderColor: "rgb(100,230,204)",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     };
 
     setForm({
       name: "",
       title: "",
       phone: "",
-      email: ""
+      email: "",
     });
 
     addEmployee(employee);
@@ -31,30 +31,27 @@ export default function Form({ addEmployee }) {
   function handleChange(event) {
     setForm({
       ...form,
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
     });
   }
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input id="name" value={form.name} onChange={handleChange} />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input id="name" value={form.name} onChange={handleChange} />
 
-      <label htmlFor="title">Title</label>
-      <input id="title" value={form.title} onChange={handleChange} />
+        <label htmlFor="title">Title</label>
+        <input id="title" value={form.title} onChange={handleChange} />
 
-      <label htmlFor="phone">Phone</label>
-      <input id="phone" value={form.phone} onChange={handleChange} />
+        <label htmlFor="phone">Phone</label>
+        <input id="phone" value={form.phone} onChange={handleChange} />
 
-      <label htmlFor="email">Email</label>
-      <input id="email" value={form.email} onChange={handleChange} />
+        <label htmlFor="email">Email</label>
+        <input id="email" value={form.email} onChange={handleChange} />
 
-      <button>Submit</button>
-    </form>
-   
-     </>
+        <button>Submit</button>
+      </form>
+    </>
   );
-  
-
 }

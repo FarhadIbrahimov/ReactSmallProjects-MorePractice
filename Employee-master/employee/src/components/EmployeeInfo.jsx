@@ -1,3 +1,5 @@
+import React from "react";
+
 const InfoCard = function ({ header, info }) {
   return (
     <div className="info-card">
@@ -10,8 +12,7 @@ const InfoCard = function ({ header, info }) {
   );
 };
 
-const EmployeeInfo = function (properties) {
-  const employee = properties.employee;
+const EmployeeInfo = function ({ employee }) {
   const phoneHeader1 = "Call Office";
   const phoneHeader2 = "Call Mobile";
   const phoneHeader3 = "SMS";
@@ -26,4 +27,4 @@ const EmployeeInfo = function (properties) {
   );
 };
 
-export { InfoCard, EmployeeInfo };
+export default EmployeeInfo;

@@ -1,24 +1,19 @@
-import Form from "./Form"
-import {useState} from "react"
+import Form from "./Form";
+import { useState } from "react";
 
-export default function DisplayForm({addEmployee}) {
-    
-    const [isShown, setIsShown] = useState(false)
+export default function DisplayForm({ addEmployee }) {
+  const [isShown, setIsShown] = useState(false);
 
- "Hide"
+  ("Hide");
 
-    function display() {
-        setIsShown(current => !current)
+  function display() {
+    setIsShown((current) => !current);
+  }
 
-    }
-    
-    return (
-        <div>
-            <button onClick={display}> {!isShown ? "Add Employee" : "Hide"}</button>
-            {isShown && <Form addEmployee={addEmployee} />}
-        </div>
-
-        
-    )
-    
+  return (
+    <div>
+      <button onClick={display}> {!isShown ? "Add Employee" : "Hide"}</button>
+      {isShown && <Form addEmployee={addEmployee} />}
+    </div>
+  );
 }

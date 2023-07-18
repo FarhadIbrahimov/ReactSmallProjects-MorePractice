@@ -5,16 +5,12 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 
 function HomePage({ employees, addEmployee }) {
-
-
   return (
     <div className="home">
       <Header header="Employee Directory" />
       <SearchBar />
       <EmployeeList employees={employees} />
-      <DisplayForm addEmployee={addEmployee}/>
-    
-     
+      <DisplayForm addEmployee={addEmployee} />
     </div>
   );
 }
