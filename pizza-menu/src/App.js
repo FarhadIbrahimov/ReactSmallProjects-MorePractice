@@ -6,7 +6,6 @@ import Footer from "./components/Footer.js";
 export default function App() {
   return (
     <div className="container">
-      <h1>Hello React</h1>
       <Header />
       <Menu />
       <Footer />
