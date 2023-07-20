@@ -1,6 +1,6 @@
 .navigation {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   background-color: black;
   color: white;
   padding: 15px;
@@ -14,7 +14,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 70vw;
 }
-h1 {
+.h1 {
   text-align: center;
+}
+.tagLine {
+  height: 1px;
+  background-color: black;
+  border: none;
+}
+.companyName {
+  flex: 4;
+  /* width: 60%; */
+}
+.change {
+  flex: 2;
+  /* width: 25%; */
+}
+.price {
+  flex: 1;
+  /* width: 15%; */
 }

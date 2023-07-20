@@ -1,46 +1,57 @@
+import { Link } from "react-router-dom";
 import stocks from "../data.jsx";
 
 export default function Dashboard() {
   return (
     <div>
       Dashboard
-      <h1>Most active Stocks</h1>
+      <h1 className="h1">Most Active Stocks</h1>
       <div className="outerContainer">
         <div className="companyName">
           Company Name
-          {stocks.map((stock) => {
+          <hr className="tagLine" />
+          {stocks.map((stock, index) => {
             return (
-              <>
-                <hr />
-                <div>{stock.name}</div>
-              </>
+              <div key={stock.symbol}>
+                {index !== 0 && <hr />}
+                <Link to={`/stocks/${stock.symbol}`}>
+                  <div>{stock.name}</div>
+                </Link>
+              </div>
             );
           })}
-          <hr />
         </div>
         <div className="price">
           Price
-          {stocks.map((stock) => {
+          <hr className="tagLine" />
+          {stocks.map((stock, index) => {
             return (
-              <>
-                <hr />
+              <div key={stock.symbol}>
+                {index !== 0 && <hr />}
                 <div>{stock.lastPrice}</div>
-              </>
+              </div>
             );
           })}
-          <hr />
         </div>
         <div className="change">
           Change
-          {stocks.map((stock) => {
+          <hr className="tagLine" />
+          {stocks.map((stock, index) => {
+            let stockPrice = (stock.lastPrice - stock.open).toFixed(2);
+            let percent = (stock.change * 100).toFixed(2);
             return (
-              <>
-                <hr />
-                <div>{stock.change}</div>
-              </>
+              <div key={stock.symbol}>
+                {index !== 0 && <hr />}
+                <div>
+                  <span style={{ color: stock.change > 0 ? "green" : "red" }}>
+                    {stock.change > 0 ? "+" : null}
+                    {stockPrice} ({stock.change > 0 ? "+" : null}
+                    {percent}%)
+                  </span>
+                </div>
+              </div>
             );
           })}
-          <hr />
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const stocks = [
     name: "Microsoft Corporation",
     symbol: "MSFT",
     lastPrice: 64.98,
-    change: 0.109999999999999,
+    change: -0.109999999999999,
     high: 65.45,
     low: 64.76,
     open: 65.12,
