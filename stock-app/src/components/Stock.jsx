@@ -39,6 +39,7 @@ export default function Stock() {
               <p>High: {stock.high}</p>
               <p>Low: {stock.low}</p>
               <p>Open: {stock.open}</p>
+              <Button onClick={() => addStock(stock)}>Follow</Button>
             </div>
           );
         }

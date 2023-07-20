@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import stocks from "../data.jsx";
+import { useStockContext } from "./StockProvider";
 
 export default function Dashboard() {
   return (
