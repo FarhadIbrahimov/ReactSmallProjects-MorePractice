@@ -5,6 +5,7 @@ import Stock from "./components/Stock";
 import Dashboard from "./components/Dashboard";
 import Nav from "./components/Nav";
 import About from "./components/About";
+import MyStocks from "./components/MyStocks";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/stocks" element={<Dashboard />} />
         <Route path="/stocks/:symbol" element={<Stock />} />
+        <Route path="/my-stocks" element={<MyStocks />} />
       </Routes>
     </div>
   );

@@ -6,6 +6,7 @@ import { useStockContext } from "./StockProvider";
 export default function Stock() {
   const { myStock, setMyStock } = useStockContext();
   const { symbol } = useParams();
+  // this is for the api we didnt add
   const [stock, setStock] = useState([]);
 
   async function getStock() {
@@ -34,6 +35,8 @@ export default function Stock() {
     setMyStock(updatedStocks);
   }
 
+  function updateFollowedStock() {}
+
   useEffect(() => {
     console.log(myStock);
   }, [myStock]);
@@ -52,12 +55,15 @@ export default function Stock() {
               <p>High: {stock.high}</p>
               <p>Low: {stock.low}</p>
               <p>Open: {stock.open}</p>
-              <button className="button" onClick={() => addStock(stock)}>
-                Follow
-              </button>
-              <button className="button" onClick={() => removeStock(stock)}>
-                Unfollow
-              </button>
+              {myStock.includes(stock) ? (
+                <button className="button" onClick={() => removeStock(stock)}>
+                  Unfollow
+                </button>
+              ) : (
+                <button className="button" onClick={() => addStock(stock)}>
+                  Follow
+                </button>
+              )}
             </div>
           );
         }

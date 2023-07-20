@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import stocks from "../data.jsx";
 import { useStockContext } from "./StockProvider";
 
-export default function Dashboard() {
+export default function MyStocks() {
+  const { myStock, setMyStock } = useStockContext();
+  console.log(myStock);
   return (
     <div>
-      <h1 className="h1">Most Active Stocks</h1>
+      <h1 className="h1">My Followed Stocks</h1>
       <div className="outerContainer">
         <div className="companyName">
           Company Name
           <hr className="tagLine" />
-          {stocks.map((stock, index) => {
+          {myStock.map((stock, index) => {
             return (
               <div key={stock.symbol}>
                 {index !== 0 && <hr />}
@@ -24,7 +25,7 @@ export default function Dashboard() {
         <div className="price">
           Price
           <hr className="tagLine" />
-          {stocks.map((stock, index) => {
+          {myStock.map((stock, index) => {
             return (
               <div key={stock.symbol}>
                 {index !== 0 && <hr />}
@@ -36,7 +37,7 @@ export default function Dashboard() {
         <div className="change">
           Change
           <hr className="tagLine" />
-          {stocks.map((stock, index) => {
+          {myStock.map((stock, index) => {
             let stockPrice = (stock.lastPrice - stock.open).toFixed(2);
             let percent = (stock.change * 100).toFixed(2);
             return (
