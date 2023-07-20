@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
 import stocks from "../data.jsx";
 import { useEffect, useState } from "react";
+import { useStockContext } from "./StockProvider";
 
 export default function Stock() {
+  const { myStock, setMyStock } = useStockContext();
   const { symbol } = useParams();
   const [stock, setStock] = useState([]);
 
@@ -14,18 +16,17 @@ export default function Stock() {
     setStock(data);
     console.log(data);
   }
-  // useEffect(() => {
-  //   if (!stock.symbol) {
-  //     getStock();
-  //     // .then((response) => {
-  //     //   setStock(response.data);
-  //     // })
-  //     // .catch((error) => {
-  //     //   console.log("Error: Unable to fetch data", error);
-  //     // });
-  //   }
-  // }, []);
+
+  function addStock(newStock) {
+    let arrStock = [...myStock, newStock];
+    setMyStock(arrStock);
+    console.log(arrStock);
+  }
+  useEffect(() => {
+    console.log(myStock);
+  }, [myStock]);
   console.log(symbol);
+
   return (
     <div className="stockInfo">
       {stocks.map((stock) => {
@@ -39,7 +40,9 @@ export default function Stock() {
               <p>High: {stock.high}</p>
               <p>Low: {stock.low}</p>
               <p>Open: {stock.open}</p>
-              <Button onClick={() => addStock(stock)}>Follow</Button>
+              <button className="button" onClick={() => addStock(stock)}>
+                Follow
+              </button>
             </div>
           );
         }

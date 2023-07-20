@@ -4,7 +4,7 @@ import stocks from "../data.jsx";
 export const StockContext = createContext();
 
 export function useStockContext() {
-  return useContext(stockContext);
+  return useContext(StockContext);
 }
 
 export function StockProvider(props) {
