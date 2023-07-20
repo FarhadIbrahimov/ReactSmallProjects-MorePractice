@@ -7,6 +7,7 @@ export default function Footer() {
 
   //   if (hour >= openHour && hour <= closeHour) alert("We are currently open!");
   //   else alert("Sorry we are closed!");
+  // if (!isOpen) return <p>CLOSED</p>;
   return (
     <footer className="footer">
       {isOpen ? (

@@ -19,9 +19,13 @@ export default function Price() {
     const data = await response.json();
     setCoin(data);
   }
-
+  //below condition prevents fetch call from happening again
   useEffect(() => {
-    getCoin();
+    console.log("useEffect");
+    if (!coin.rate) {
+      getCoin();
+    }
+
     // This is the effect function
     // It runs after the component mounts and only once because of the empty dependency array
     // Add any side effect code here, such as data fetching, subscriptions, or DOM manipulations
