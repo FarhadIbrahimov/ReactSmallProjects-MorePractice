@@ -18,10 +18,22 @@ export default function Stock() {
   }
 
   function addStock(newStock) {
-    let arrStock = [...myStock, newStock];
-    setMyStock(arrStock);
-    console.log(arrStock);
+    if (myStock.includes(newStock)) {
+      return;
+    } else {
+      let arrStock = [...myStock, newStock];
+      setMyStock(arrStock);
+      console.log(arrStock);
+    }
   }
+
+  function removeStock(newStock) {
+    const updatedStocks = myStock.filter(
+      (stock) => stock.symbol !== newStock.symbol
+    );
+    setMyStock(updatedStocks);
+  }
+
   useEffect(() => {
     console.log(myStock);
   }, [myStock]);
@@ -42,6 +54,9 @@ export default function Stock() {
               <p>Open: {stock.open}</p>
               <button className="button" onClick={() => addStock(stock)}>
                 Follow
+              </button>
+              <button className="button" onClick={() => removeStock(stock)}>
+                Unfollow
               </button>
             </div>
           );
