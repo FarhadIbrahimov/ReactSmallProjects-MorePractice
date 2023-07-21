@@ -1,13 +1,19 @@
-export default function Pizza(props) {
-  console.log(props);
-  if (props.pizzaObj.soldOut) return null;
+export default function Pizza({ pizzaObj }) {
+  console.log(pizzaObj);
+
+  // if (pizzaObj.soldOut) return null;
+
   return (
-    <li className="pizza" key={props.pizzaObj.name}>
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    <li
+      className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}
+      key={pizzaObj.name}
+    >
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
   );
