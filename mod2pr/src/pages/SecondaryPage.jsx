@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import Main from "./Main";
 import { useLocation } from "react-router-dom";
 
 export default function SecondaryPage() {
   const location = useLocation();
-  const joke = location?.state?.joke; //|| "No joke available";
+  const joke =
+    location?.state?.joke ||
+    "stop  clicking left and right.. website is under construction..   ";
 
   return (
     <>
