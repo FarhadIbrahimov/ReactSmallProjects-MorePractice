@@ -4,7 +4,7 @@ import SecondaryPage from "../pages/SecondaryPage";
 export default function Nav() {
   return (
     <div>
-      <div className="nav">
+      <div className="nav uppercase">
         <Link to="/">
           <div>Home</div>
         </Link>
