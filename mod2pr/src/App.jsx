@@ -1,35 +1,17 @@
-import { useState } from "react";
-import Axios from "axios";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Nav from "./utilities/Nav";
+import Main from "./pages/Main";
+import SecondaryPage from "./pages/SecondaryPage";
 
-function App() {
-  const [joke, setJoke] = useState("");
-
-  const getJoke = () => {
-    // fetch("https://official-joke-api.appspot.com/random_joke")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setJoke(data.setup + "...." + data.punchline);
-    //   });
-
-    Axios.get("https://official-joke-api.appspot.com/random_joke").then(
-      (response) => {
-        console.log(response);
-        setJoke(response.data.setup + "...   .." + response.data.punchline);
-      }
-    );
-  };
+export default function App() {
   return (
     <>
-      <div>
-        <div>
-          <button onClick={getJoke}>Get Joke</button>
-        </div>
-
-        <h2>{joke}</h2>
-      </div>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/second" element={<SecondaryPage />} />
+      </Routes>
     </>
   );
 }
-
-export default App;
